@@ -20,10 +20,10 @@ bot_token=bot_token
 
 
 @app.on_message(filters.command(["start"]))
-async def start(client, message):    
-await message.reply("Ben test deneme botuyum bock")
+async def start(client, message):
+    await message.reply("Ben test deneme botuyum bock")
 
 
 
 
- app.run()
+app.run()

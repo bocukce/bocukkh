@@ -21,7 +21,7 @@ bot_token=bot_token
 
 @app.on_message(filters.command(["start"]))
 async def start(client, message):
-    await message.reply("Ben test deneme botuyum bock")
+    await message.reply("Bu botu kullanan ve start verenler eşektir")
 
 
 

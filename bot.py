@@ -54,7 +54,7 @@ elif message.from_user.id == 6423044130:
   await message.reply_text(**sahibimin canı canı**)
 
 else:
-await message.reply_text("**seni tanımıyorum sen de kimsin.**")
+  await message.reply_text("**seni tanımıyorum sen de kimsin.**")
 
 
 app.run()

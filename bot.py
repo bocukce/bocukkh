@@ -22,12 +22,19 @@ app = Client(
 
 @app.on_message(filters.command(["start"]))
 async def start(client, message):
-   await message.reply("selam,ben text deneme botuyum.")
+   await message.reply("selam,ben test deneme botuyum.")
 
  
 
 @app.on_message(filters.command("kole") & filters.group) 
 async def kole(client, message):
+     keyboard = InlineKeyboardMarkup(
+        inline_keyboard=[
+            [ 
+                InlineKeyboardButton(text="Destek 🛠 ", url="https://t.me/yikilmayanchat")
+            ],
+            [
+                InlineKeyboardButton(text="Sahip ❤️‍🔥 ", url="https://t.me/bocukce")
 
     if message.from_user.id == 6905940236:
          await message.reply_text("**Sayın sahibim!şu an sorunsuz çalışıyorum.**")

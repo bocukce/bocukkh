@@ -26,8 +26,6 @@ async def start(client, message):
 
  
 
-@app.on_message(filters.command("kole") & filters.group) 
-async def kole(client, message):
 # /start komutunu özel mesajlarda dinleyen bir handler tanımlıyoruz.
 @app.on_message(filters.command(["start"]) & filters.private)
  async def start (client,message):
@@ -50,7 +48,9 @@ async def kole(client, message):
            reply_markup=keyboard
       )     
            
-
+@app.on_message(filters.command("kole") & filters.group) 
+async def kole(client, message):
+     
     if message.from_user.id == 6905940236:
          await message.reply_text("**Sayın sahibim!şu an sorunsuz çalışıyorum.**")
 

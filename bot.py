@@ -22,7 +22,7 @@ app = Client(
 
 @app.on_message(filters.command(["start"]))
 async def start(client, message):
-   await message.reply("selam yakışıklı hoş geldin")
+   await message.reply("selam,ben text deneme botuyum.")
 
  
 
@@ -56,6 +56,13 @@ async def kole(client, message):
     else:
        await message.reply_text("**seni tanımıyorum sen de kimsin.**")
 
-
+# yeni bir kullanıcı gruba katıldığında çalışacak
+@app.on_message(filters.new_chat_members)  # yeni bir kullanıcı gruba katıldığında bu fonksiyon tetiklenecek
+def welcome(client, message):  # hoş geldin mesajı fonksiyonunu tanımlıyoruz
+    for member in message.new_chat_members:  # yeni katılan her kullanıcı için döngü başlatıyoruz
+        if member.id == OWNER_ID:  # eğer katılan kullanıcı bot sahibiyse
+            message.reply(f"Hoş geldiniz, {member.mention}! Botun sahibinin gruba katılması büyük bir onur.")  # özel bir hoşgeldin mesajı gönderiyoruz
+        else:  # Eğer katılan kullanıcı bot sahibi değilse
+            message.reply(f"Hoş geldiniz, {member.mention}! Grubumuza katıldığınız için mutluyuz.")  # genel hoş geldin mesajı gönderiyoruz
 
 app.run()

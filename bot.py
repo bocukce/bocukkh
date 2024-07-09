@@ -19,6 +19,8 @@ app = Client(
      )
 
  
+OWNER_ID = 6905940236
+
 
 # /start komutunu özel mesajlarda dinleyen bir handler tanımlıyoruz.
 @app.on_message(filters.command(["start"]) & filters.private)
@@ -32,13 +34,12 @@ app = Client(
                 ],
                 [
                    # ikinci buton sahibin profiline yönlendiriyor.
-                   InlineKeyboardButton(text="Owner 🐞", user_id=6905940236)
+                   InlineKeyboardButton(text="Owner 🐞", user_id=OWNER_ID)
                 ]
            ]
       ) 
       # kullanıcıya yanıt olarak bir mesaj gönderiyoruz ve klavyeyi ekliyoruz.
-      await message.reply(
-           "Merhaba, ben test deneme butonuyum. Aşağıdaki butonlardan birini seçebilirsiniz:",
+      await message.reply("Merhaba, ben test deneme butonuyum. Aşağıdaki butonlardan birini seçebilirsiniz:",
            reply_markup=keyboard
       )     
            

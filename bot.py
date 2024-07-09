@@ -1,12 +1,12 @@
-import pyrogram 
-from pyrogram import Client, filters 
-from pyrogram.types import Message 
-
+import pyrogram
+from pyrogram import Client, filters
+from pyrogram.types import Message
+from pyrogram.types import InlineKeyboardButton, InlinekeyboardMarkup
 
 
 
 api_id = 26597515 
-api_hash = "ea74a2439c1f8fff561d8d86af6f1540"
+api_hash = "e556b966e7192209f7f419b07de8cc6a"
 bot_token = "6997698261:AAEiJJIQ_fy8PlQdUIdQLpw7V4h1rX4byBM"
 
 

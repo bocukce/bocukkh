@@ -68,7 +68,7 @@ async def kole(client, message):
 def welcome(client, message):  # hoş geldin mesajı fonksiyonunu tanımlıyoruz
     for member in message.new_chat_members:  # yeni katılan her kullanıcı için döngü başlatıyoruz
         if member.id == OWNER_ID:  # eğer katılan kullanıcı bot sahibiyse
-            message.reply(f"Hoş geldiniz, {member.mention}! Botun sahibinin gruba katılması büyük bir onur.")  # özel bir hoşgeldin mesajı gönderiyoruz
+            message.reply(f"Hoş geldiniz, {member.mention}! Botun sahibinin gruba katılması büyük bir onur.")  # özel bir hoş geldin mesajı gönderiyoruz
         else:  # Eğer katılan kullanıcı bot sahibi değilse
             message.reply(f"Hoş geldiniz, {member.mention}! Grubumuza katıldığınız için mutluyuz.")  # genel hoş geldin mesajı gönderiyoruz
 

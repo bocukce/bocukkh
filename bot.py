@@ -28,31 +28,46 @@ async def start(client, message):
 
 @app.on_message(filters.command("kole") & filters.group) 
 async def kole(client, message):
-     keyboard = InlineKeyboardMarkup(
-        inline_keyboard=[
-            [ 
-                InlineKeyboardButton(text="Destek 🛠 ", url="https://t.me/yikilmayanchat")
-            ],
-            [
-                InlineKeyboardButton(text="Sahip ❤️‍🔥 ", url="https://t.me/bocukce")
+# /start komutunu özel mesajlarda dinleyen bir handler tanımlıyoruz.
+@app.on_message(filters.command(["start"]) & filters.private)
+ async def start (client,message):
+      # butonları içeren bir klavye oluşturuyoruz.
+      keyboard = InlineKeyboardMarkup(
+           inline_keyboard=[
+                [
+                   # ilk buton destek chatine yönlendiriyor.
+                   InlineKeyboardButton(text="Destek 🛠", url="https://t.me/yikilmayanchat")
+                ]
+                [
+                   # ikinci buton sahibin profiline yönlendiriyor.
+                   InlineKeyboardButton(text="Owner 🐞", user_id=6905940236)
+                ]
+           ]
+      ) 
+      # kullanıcıya yanıt olarak bir mesaj gönderiyoruz ve klavyeyi ekliyoruz.
+      await message.reply(
+           "Merhaba, ben test deneme butonuyum. Aşağıdaki butonlardan birini seçebilirsiniz:",
+           reply_markup=keyboard
+      )     
+           
 
     if message.from_user.id == 6905940236:
          await message.reply_text("**Sayın sahibim!şu an sorunsuz çalışıyorum.**")
 
     elif message.from_user.id == 7142242630:
-          await message.reply_text("**tırrek sassy çalışıyorum çok yorma vjkxvsl.**")
+          await message.reply_text("**tırrek sassy çalışıyorum tabiki.**")
                      
     elif message.from_user.id == 7131686379:
           await message.reply_text("** titrek karı delisin ama ben kadar değil,yorma pls.**")
 
     elif message.from_user.id == 7182074621:
-          await message.reply_text("**sado sen konuşma dfhkslflzjcx**")
+          await message.reply_text("**sedo kardaşım sen konuşma, sen kimdir dfhkslflzjcx**")
 
     elif message.from_user.id == 6604549799:
           await message.reply_text("**dayı beni öldürdüler dayı,kurtar beni bunların elinden**")
 
     elif message.from_user.id == 2040437974:
-          await message.reply_text("**göttü can kardaşım, sen iste tüm botları çalıştırayım.**")
+          await message.reply_text("**göttü can kardaşım, sen iste bütün botları çalıştırayım.**")
 
     elif message.from_user.id == 6716279900:
           await message.reply_text("**maymuş sen iste tüm maymunları köle yapayım sana.**") 

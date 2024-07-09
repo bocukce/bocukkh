@@ -35,7 +35,7 @@ async def start(client, message):
                 [
                    # ilk buton destek chatine yönlendiriyor.
                    InlineKeyboardButton(text="Destek 🛠", url="https://t.me/yikilmayanchat")
-                ]
+                ],
                 [
                    # ikinci buton sahibin profiline yönlendiriyor.
                    InlineKeyboardButton(text="Owner 🐞", user_id=6905940236)
@@ -48,8 +48,8 @@ async def start(client, message):
            reply_markup=keyboard
       )     
            
-    @app.on_message(filters.command("kole") & filters.group) 
-    async def kole(client, message):
+@app.on_message(filters.command("kole") & filters.group) 
+async def kole(client, message):
      
     if message.from_user.id == 6905940236:
          await message.reply_text("**Sayın sahibim!şu an sorunsuz çalışıyorum.**")

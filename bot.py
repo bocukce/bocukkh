@@ -18,12 +18,6 @@ app = Client(
      bot_token=bot_token
      )
 
-
-
-@app.on_message(filters.command(["start"]))
-async def start(client, message):
-   await message.reply("selam,ben test deneme botuyum.")
-
  
 
 # /start komutunu özel mesajlarda dinleyen bir handler tanımlıyoruz.

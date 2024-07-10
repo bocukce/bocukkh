@@ -1,7 +1,7 @@
 import pyrogram
 from pyrogram import Client, filters
 from pyrogram.types import Message
-from pyrogram.types import InlineKeyboardButton, InlinekeyboardMarkup
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 
 
@@ -25,7 +25,7 @@ OWNER_ID = 6905940236
 
 # /start komutunu özel mesajlarda dinleyen bir handler tanımlıyoruz.
 @app.on_message(filters.command(["start"]) & filters.group)
- async def start(client, message):
+async def start(client, message):
       # butonları içeren bir klavye oluşturuyoruz.
       keyboard = InlineKeyboardMarkup(
            inline_keyboard=[

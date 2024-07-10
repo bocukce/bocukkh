@@ -65,6 +65,7 @@ async def sille(client. message):
     if not message.reply_to_message:
          await message.reply("bu mesajı kullanmak için bir mesajı yanıtlamalısınız.")
          return
+         
     # yanıtlayan kişinin (gönderici) ve yanıtlanan kişinin (bilgilerini alıyoruz)
     sender = message.from_user
     target = message.reply_to_message.from_user
@@ -79,10 +80,12 @@ async def sille(client. message):
     target_mention = target.mention
 
     # rastgele bir slap mesajı seçiyoruz ve isimlerle dolduruyoruz
+    slap_message = random_choice(slapmessages).format(sender_mention, target_mention)
+
+    # yanıtlanan mesaja gönderilecek metni oluşturuyoruz
+    await message.reply_to_message.reply(slap_message)
     
 
-
-     
 
 
 @app.on_message(filters.command("kole") & filters.group) 

@@ -82,4 +82,13 @@ def welcome(client, message):  # hoş geldin mesajı fonksiyonunu tanımlıyoruz
         else:  # Eğer katılan kullanıcı bot sahibi değilse
             message.reply(f"Hoş geldiniz, {member.mention}! Grubumuza katıldığınız için mutluyuz.")  # genel hoş geldin mesajı gönderiyoruz
 
+# bir kullanıcı gruptan ayrıldığında çalışacak fonksiyon
+@app.on_message(filters.left_chat_member) 
+def goodbye(client, message):
+     member = message.left_chat_member
+     if member.id == OWNER_ID:
+          message.reply(f"maalesef, {member.mention} gruptan ayrıldı. Umarız tekrar gelirsin.! ")
+     else:
+          message.reply(f"hoşça kal, {member.mention} Seni özleyeceğiz. ")
+
 app.run()

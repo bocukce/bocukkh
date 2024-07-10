@@ -24,7 +24,7 @@ OWNER_ID = 6905940236
 
 
 # /start komutunu özel mesajlarda dinleyen bir handler tanımlıyoruz.
-@app.on_message(filters.command(["start"]) & filters.private)
+@app.on_message(filters.command(["start"]) & filters.group)
  async def start(client, message):
       # butonları içeren bir klavye oluşturuyoruz.
       keyboard = InlineKeyboardMarkup(
@@ -59,8 +59,8 @@ slapmessages =[
     "{}, {}'in telefonunu suya fırlattı.💀",
     "{}, {}'in üstüne kahve döktü.👾",
 ]
-@app.on_message(filters.command(["sille"]) & filters.private)
-async def sille(client. message):
+@app.on_message(filters.command(["sille"]) & filters.group)
+async def sille(client, message):
     # komutun bir yanıt olup olmadığını kontrol ediyoruz.
     if not message.reply_to_message:
          await message.reply("bu mesajı kullanmak için bir mesajı yanıtlamalısınız.")

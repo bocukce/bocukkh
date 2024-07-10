@@ -5,6 +5,7 @@ from pyrogram.types import InlineKeyboardButton, InlinekeyboardMarkup
 
 
 
+
 api_id = 26597515 
 api_hash = "e556b966e7192209f7f419b07de8cc6a"
 bot_token = "6997698261:AAEiJJIQ_fy8PlQdUIdQLpw7V4h1rX4byBM"
@@ -41,8 +42,49 @@ OWNER_ID = 6905940236
       # kullanıcıya yanıt olarak bir mesaj gönderiyoruz ve klavyeyi ekliyoruz.
       await message.reply("Merhaba, ben test deneme butonuyum. Aşağıdaki butonlardan birini seçebilirsiniz:",
            reply_markup=keyboard
-      )     
-           
+      )  
+
+
+
+
+
+
+# slapmessages örnekleri 
+slapmessages =[
+    "{}, {}'in yüzüne tükürdü.😄",
+    "{}, {}'i tekmeledi.🙊",
+    "{}, {}'yı tekme tokat dövdü.😱",
+    "{}, {}'e tokat attı.🤠",
+    "{}, {}'i tekmeledi.🤡",
+    "{}, {}'in telefonunu suya fırlattı.💀",
+    "{}, {}'in üstüne kahve döktü.👾",
+]
+@app.on_message(filters.command(["sille"]) & filters.private)
+async def sille(client. message):
+    # komutun bir yanıt olup olmadığını kontrol ediyoruz.
+    if not message.reply_to_message:
+         await message.reply("bu mesajı kullanmak için bir mesajı yanıtlamalısınız.")
+         return
+    # yanıtlayan kişinin (gönderici) ve yanıtlanan kişinin (bilgilerini alıyoruz)
+    sender = message.from_user
+    target = message.reply_to_message.from_user
+
+    # eğer yanıtlanan kişi OWNER_ID ise özel bir mesaj gönderiyoruz.
+    if target.id == OWNER_ID:
+        await message.reply("Beni tokatlayamazsın!")
+        return
+         
+    # yanıtlayan ve yanıtlanan kişilerin mentionlarını alıyoruz
+    sender_mention = sender.mention
+    target_mention = target.mention
+
+    # rastgele bir slap mesajı seçiyoruz ve isimlerle dolduruyoruz
+    
+
+
+     
+
+
 @app.on_message(filters.command("kole") & filters.group) 
 async def kole(client, message):
      

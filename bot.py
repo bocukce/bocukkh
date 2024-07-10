@@ -80,7 +80,7 @@ async def sille(client, message):
     target_mention = target.mention
 
     # rastgele bir slap mesajı seçiyoruz ve isimlerle dolduruyoruz
-    slap_message = random_choice(slapmessages).format(sender_mention, target_mention)
+    slap_message = random.choice(slapmessages).format(sender_mention, target_mention)
 
     # yanıtlanan mesaja gönderilecek metni oluşturuyoruz
     await message.reply_to_message.reply(slap_message)

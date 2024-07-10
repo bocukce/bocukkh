@@ -59,7 +59,7 @@ slapmessages =[
     "{}, {}'in telefonunu suya fırlattı.💀",
     "{}, {}'in üstüne kahve döktü.👾",
 ]
-@app.on_message(filters.command(["sille"]) & filters.private)
+@app.on_message(filters.command(["sille"]) & filters.group)
 async def sille(client, message):
     # komutun bir yanıt olup olmadığını kontrol ediyoruz.
     if not message.reply_to_message:

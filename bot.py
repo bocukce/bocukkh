@@ -141,7 +141,7 @@ def goodbye(client, message):
 async def para(client, message):
      # random olarak "yazı" veya "tura" seçimi yapma
      result = random.choice(["Yazı✋", "Tura🌑"])
-     await message.reply(f"Para atıldı: **{result}**")
+     await message.reply(f"**{result}**")
      
    
 

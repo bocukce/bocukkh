@@ -128,7 +128,7 @@ def welcome(client, message):  # hoş geldin mesajı fonksiyonunu tanımlıyoruz
             message.reply(f"Hoş geldiniz, {member.mention}! Grubumuza katıldığınız için mutluyuz.")  # genel hoş geldin mesajı gönderiyoruz
 
 # bir kullanıcı gruptan ayrıldığında çalışacak fonksiyon
-@eyenapp.on_message(filters.left_chat_member) 
+@app.on_message(filters.left_chat_member) 
 def goodbye(client, message):
      member = message.left_chat_member
      if member.id == OWNER_ID:
@@ -137,7 +137,7 @@ def goodbye(client, message):
           message.reply(f"hoşça kal, {member.mention} Seni özleyeceğiz. ")
 
 # /para komutunu dinleyen handler 
-@app.on_message(filters.command(["para"] & filters.group))
+@app.on_message(filters.command(["para"]) & filters.group)
 async def para(client, message):
      # random olarak "yazı" veya "tura" seçimi yapma
      result = random.choice(["Yazı✋", "Tura🌑"])

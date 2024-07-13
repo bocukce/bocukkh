@@ -229,7 +229,7 @@ dogruluk_soruları = [
     "Bu odada en güzel dans eden kim?",
     "Bu odadaki birinin bir fiziksel özelliğine sahip olsaydınız, bu ne olurdu?",
     "Yaşamak için bir haftan var ve bu grupta biriyle evlenmek zorunda olsaydın, kim olurdu?",
-    "Yaşamak için sadece 24 saatiniz olsa ve bu odadaki herhangi biriyle herhangi bir şey yapabilseydiniz, kim olurdu ve o kişiyle ne yapardınız?
+    "Yaşamak için sadece 24 saatiniz olsa ve bu odadaki herhangi biriyle herhangi bir şey yapabilseydiniz, kim olurdu ve o kişiyle ne yapardınız?",
     "Dünyadaki son kişi ben olsam benimle çıkar mıydın?",
     "Yaptığın en çapkın şey nedir?"
     ]
@@ -249,10 +249,10 @@ dogruluk_soruları = [
 async def doğruluk_cesaretlik_komutu(client, message):
      komut = message.command[0][1:] # komutu alır (başındakı "/" işaretini atarak)
 
-if komut == "dogruluk":
-     soru = random.choice(dogruluk_soruları)
-elif komut == "cesaret":
-     soru = random.choice(cesaretlik_soruları)
+     if komut == "dogruluk":
+         soru = random.choice(dogruluk_soruları)
+     elif komut == "cesaret":
+         soru = random.choice(cesaretlik_soruları)
 
 await message.reply(soru)
      

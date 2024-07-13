@@ -254,7 +254,7 @@ async def doğruluk_cesaretlik_komutu(client, message):
      elif komut == "cesaret":
          soru = random.choice(cesaretlik_soruları)
 
-await message.reply(soru)
+     await message.reply(soru)
      
      
 

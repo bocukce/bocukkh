@@ -165,6 +165,6 @@ async def send_dice(client, message):
          await asyncio.sleep(3) # 3 saniye beklemek için
 
          # zarın sonucunu içeren mesajı güncelleyelim
-         await message.reply(f"Zar durdu! Gelen sayı: {dice_message.dice.value:})
+         await message.reply(f"Zar durdu! Gelen sayı: {dice_message.dice.value}")
 
 app.run()

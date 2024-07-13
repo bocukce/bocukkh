@@ -33,7 +33,7 @@ async def start(client, message):
                    # ilk buton destek chatine yönlendiriyor.
                    InlineKeyboardButton(text="Destek 🛠", url="https://t.me/yikilmayanchat")
                    # gruba ekle butonu
-                   InlineKeyboardButton(text="Gruba Ekle 👥", url=f"https://t.me/{app.me.bocukdenemebot}?startgroup=true"))
+                   InlineKeyboardButton(text="Gruba Ekle 👥", url=f"https://t.me/{app.me.bocukdenemebot}?startgroup=true")
                 ],
                 [
                    # ikinci buton sahibin profiline yönlendiriyor.

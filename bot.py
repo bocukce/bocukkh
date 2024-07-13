@@ -245,7 +245,7 @@ dogruluk_soruları = [
     "Yakındaki herkese gülümseyin.",
     "Eğer olabilecek bir dil öğrenme, ne olurdu?"
     ]
-@uygulama.on_message(filters.command(["dogruluk", "cesaretlik"]))
+@app.on_message(filters.command(["dogruluk", "cesaretlik"]))
 async def doğruluk_cesaretlik_komutu(client, message):
      komut = message.command[0][1:] # komutu alır (başındakı "/" işaretini atarak)
 

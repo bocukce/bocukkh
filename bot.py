@@ -140,10 +140,31 @@ def goodbye(client, message):
 # /para komutunu dinleyen handler 
 @app.on_message(filters.command(["para"]) & filters.group)
 async def para(client, message):
-     # random olarak "yazı" veya "tura" seçimi yapma
+   # random olarak "yazı" veya "tura" seçimi yapma
      result = random.choice(["Yazı✋", "Tura🌑"])
      await message.reply(f"**{result}**")
-     
-   
+
+# komutları ve emojileri tanımlayalım
+commands = {
+    "zar": "🎲",
+    "dart": "🎯",
+    "basket": "🏀",
+    "futbol": "⚽️",
+    "bowling": "🎳",
+    "slot": "🎰",
+}
+# Her bir komut için fonksiyon tanımlayın
+@app.on_message(filters.command(list(commands.keys())))
+async def send_dice(client, message):
+     command = message.command[0][1:] # komutu alır (başındaki '/' işaretini atarak)
+     emoji = commands.get(command)
+     if emoji:
+         dice_message = await message.reply_dice(emoji=emoji)
+          
+         # zarın sonucunu beklemek için kısa bir süre uyuyalım
+         await asyncio.sleep(3) # 3 saniye beklemek için
+
+         # zarın sonucunu içeren mesajı güncelleyelim
+         await message.reply(f"Zar durdu! Gelen sayı: {dice_message.dice.value:})
 
 app.run()

@@ -32,6 +32,8 @@ async def start(client, message):
                 [
                    # ilk buton destek chatine yönlendiriyor.
                    InlineKeyboardButton(text="Destek 🛠", url="https://t.me/yikilmayanchat")
+                   # gruba ekle butonu
+                   InlineKeyboardButton(text="Gruba Ekle 👥", url=f""https://t.me/{app.me.bocukdenemebot}?startgroup=true"))
                 ],
                 [
                    # ikinci buton sahibin profiline yönlendiriyor.
@@ -41,8 +43,7 @@ async def start(client, message):
       ) 
       # kullanıcıya yanıt olarak bir mesaj gönderiyoruz ve klavyeyi ekliyoruz.
       await message.reply("Merhaba, ben test deneme butonuyum. Aşağıdaki butonlardan birini seçebilirsiniz:",
-           reply_markup=keyboard
-      )  
+                          reply_markup=keyboard)  
 
 
 

@@ -232,8 +232,30 @@ dogruluk_soruları = [
     "Yaşamak için sadece 24 saatiniz olsa ve bu odadaki herhangi biriyle herhangi bir şey yapabilseydiniz, kim olurdu ve o kişiyle ne yapardınız?
     "Dünyadaki son kişi ben olsam benimle çıkar mıydın?",
     "Yaptığın en çapkın şey nedir?"
-]
+    ]
 
+    cesaret_soruları = [
+    "Son zamanlarda nefret ettiğin ya da aşık olduğun kişi kim?",
+    "Karşı cinste seksi bulduğun seni etkileyen şey ne?",
+    "Kendi elin ile öpüş",
+    "Whatsapp'a gelen son mesajı bize oku.",
+    "Yanındaki kişiyi öp.",
+    "Bir yabancıya komik bir şaka yapın.",
+    "Grubun seçtiği bir kişiye bir şarkı söyleyin.",
+    "Yakındaki herkese gülümseyin.",
+    "Eğer olabilecek bir dil öğrenme, ne olurdu?"
+    ]
+@uygulama.on_message(filters.command(["dogruluk", "cesaretlik"]))
+async def doğruluk_cesaretlik_komutu(client, message):
+     komut = message.command[0][1:] # komutu alır (başındakı "/" işaretini atarak)
 
+if komut == "dogruluk":
+     soru = random.choice(dogruluk_soruları)
+elif komut == "cesaret":
+     soru = random.choice(cesaretlik_soruları)
+
+await message.reply(soru)
+     
+     
 
 app.run()

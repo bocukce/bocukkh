@@ -31,7 +31,7 @@ async def start(client, message):
            inline_keyboard=[
                 [
                    # ilk buton destek chatine yönlendiriyor.
-                   InlineKeyboardButton(text="Destek 🛠", url="https://t.me/yikilmayanchat")
+                   InlineKeyboardButton(text="Destek 🛠", url=f"https://t.me/yikilmayanchat")
                    # gruba ekle butonu
                    InlineKeyboardButton(text="Gruba Ekle 👥", url=f"https://t.me/{app.me.username}?startgroup=true")
                 ],

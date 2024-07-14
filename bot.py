@@ -144,107 +144,41 @@ async def para(client, message):
      result = random.choice(["Yazı✋", "Tura🌑"])
      await message.reply(f"**{result}**")
 
-# komutları ve emojileri tanımlayalım
-commands = {
-    "zar": "🎲",
-    "dart": "🎯",
-    "basket": "🏀",
-    "futbol": "⚽️",
-    "bowling": "🎳",
-    "slot": "🎰",
-}
-# Her bir komut için fonksiyon tanımlayın
-@app.on_message(filters.command(list(commands.keys())))
-async def send_dice(client, message):
-     command = message.command[0][1:] # komutu alır (başındaki '/' işaretini atarak)
-     emoji = commands.get(command)
-     if emoji:
-         dice_message = await message.reply_dice(emoji=emoji)
+
+commandList = [
+    "zar",
+    "dart",
+    "basket",
+    "basket",
+    "futbol",
+    "bowling",
+    "slot",
+    "para",
+    "d",
+    "c"
+]
+@app.on_message(filters.command(commandList))
+async def games(c: Client, m: Message):
+    command = m.command[0]
+ 
+    if command == "zar":
+        return await c.send_dice(m.chat.id, emoji"🎲")
+         
+    elif command == "dart":
+         return await c.send_dart(m.chat.id, emoji"🎯")
+         
+    elif command == "basket":
+         return await c.send_basket(m.chat.id, emoji"🏀")
+
+    elif command == "futbol":
+         return await c.send_futbol(m.chat.id, emoji"⚽")
+
+    elif command == "bowling":
+         return await c.send_bowling(m.chat.id, emoji"🎳")
+
+    
           
-         # zarın sonucunu beklemek için kısa bir süre uyuyalım
-         await asyncio.sleep(3) # 3 saniye beklemek için
-
-         # zarın sonucunu içeren mesajı güncelleyelim
-         await message.reply(f"Zar durdu! Gelen sayı: {dice_message.dice.value}")
-
-# Doğruluk ve cesaretlik soruları
-dogruluk_soruları = [
-    "En son ne zaman yalan söyledin?",
-    "En son ne zaman ağladın ve ne için?",
-    "En büyük korkun ne?",
-    "Annenin senin hakkında bilmediğine sevindiğin şey nedir?",
-    "Hiç birini aldattın mı?",
-    "Şimdiye kadar yaptığın en kötü şey ne?",
-    "Hiç kimseye söylemediğin bir sır nedir?",
-    "Gizli bir yeteneğin var mı?",
-    "En son ne zaman yalan söyledin?",
-    "En büyük korkun ne?",
-    "Annenin senin hakkında bilmediğine sevindiğin şey nedir?",
-    "Hiç birini aldattın mı?",
-    "Şimdiye kadar yaptığın en kötü şey ne?",
-    "Hiç kimseye söylemediğin bir sır nedir?",
-    "Gizli bir yeteneğin var mı?",
-    "Ünlü insanlardan aşık olduğun biri oldu mu?",
-    "Şimdiye kadar yaşadığınız en kötü deneyim neydi?",
-    "Hiç bir sınavda kopya çektin mi?",
-    "Şimdiye kadar hiç sarhoş oldun mu?",
-    "Hiç kanunu çiğnedin mi?",
-    "Şimdiye kadar yaptığın en utanç verici şey nedir?",
-    "En büyük güvensizliğin nedir?",
-    "Şimdiye kadar yaptığın en büyük hata nedir?",
-    "Şimdiye kadar yaptığın en iğrenç şey nedir?",
-    "Birinin sana yaptığı en kötü şey neydi?",
-    "Hiç karakola düşecek bir şey yaptın mı?",
-    "En kötü alışkanlığın nedir?",
-    "Şimdiye kadar birine söylediğin en kötü şey nedir?",
-    "Gördüğün en garip rüya neydi?",
-    "Hiç yapmaman gereken bir şeyi yaparken yakalandın mı?",
-    "Hayatta yaşadığın en kötü buluşma nasıl oldu?",
-    "En büyük pişmanlığın nedir?",
-    "İnsanların senin hakkında düşündüklerinin aksine kötü olan gerçek yönün nedir?",
-    "İçinde bulunduğun en büyük sorun neydi?",
-    "Hiç arkadaşının sırrını başkasıyla paylaştın mı?",
-    "Benim mesajımı hiç görmezden geldin mi, Neden bunu yaptın?",
-    "Hiç en iyi arkadaşına yalan söyledin mi?",
-    "En iyi 2 arkadaşın arasında seçim yapsan hangisini seçerdin?",
-    "En iyi arkadaşının en sevmediğin huyu nedir?",
-    "Sevdiğin ama açılamadığın kişi sana en yakın arkadaşını sevdiğini söylese ne yapardın?",
-    "Arkadaşının sevgilisini aldattığını bilseydin ne yapardın?",
-    "Kendini daha iyi biri gibi göstermek için en iyi arkadaşın hakkında yalan söyledin mi?",
-    "Kim daha güzel/yakışıklı? Sen mi (odadaki herhangi biri)……. mı?",
-    "Gruptaki herhangi biri hakkındaki ilk izleniminiz neydi?",
-    "Odadaki herkese 1’den 10’a kadar puan verin, 10’u en sıcak olanı; 1 ise en kötü ve soğuk olanı.",
-    "Bir diş fırçasını en iyi arkadaşınla paylaşır mısın?",
-    "Arkadaşın onun için yalan söylemeni istedi ve başının derde gireceğini biliyor olsaydın yine de söyler miydin?",
-    "Okuldaki en popüler kız/erkek sen olsaydın arkadaşlarından vazgeçer misin?",
-    "Biri size en iyi arkadaşınızın nasıl olduğunu sorduğunda, onu nasıl anlatırdın?",
-    "Bir tatil kazansan ve iki kişi getirmenize izin verilse aramızdan kimleri seçerdin?",
-    "Saklamanız söylendiği bir sırrı hiç anlattınız mı?",
-    "Sevgilin ve en iyi dostun göle düşse önce hangisini kurtarırsın?",
-    "Bu gruptaki insanlardan, kiminle çıkardın?",
-    "Bu grupta en iyi gülüşe kim sahip?",
-    "Bu grupta en güzel gözler kimde?",
-    "Bu gruptaki en komik kişi kim?",
-    "Bir kız/erkek ile buluşmaya gittiğinde aynada kendini ne sıklıkta kontrol ediyorsun?",
-    "Bu odada en güzel dans eden kim?",
-    "Bu odadaki birinin bir fiziksel özelliğine sahip olsaydınız, bu ne olurdu?",
-    "Yaşamak için bir haftan var ve bu grupta biriyle evlenmek zorunda olsaydın, kim olurdu?",
-    "Yaşamak için sadece 24 saatiniz olsa ve bu odadaki herhangi biriyle herhangi bir şey yapabilseydiniz, kim olurdu ve o kişiyle ne yapardınız?",
-    "Dünyadaki son kişi ben olsam benimle çıkar mıydın?",
-    "Yaptığın en çapkın şey nedir?"
-    ]
-
-    cesaret_soruları = [
-    "Son zamanlarda nefret ettiğin ya da aşık olduğun kişi kim?",
-    "Karşı cinste seksi bulduğun seni etkileyen şey ne?",
-    "Kendi elin ile öpüş",
-    "Whatsapp'a gelen son mesajı bize oku.",
-    "Yanındaki kişiyi öp.",
-    "Bir yabancıya komik bir şaka yapın.",
-    "Grubun seçtiği bir kişiye bir şarkı söyleyin.",
-    "Yakındaki herkese gülümseyin.",
-    "Eğer olabilecek bir dil öğrenme, ne olurdu?"
-    ]
+     
 @app.on_message(filters.command(["dogruluk", "cesaretlik"]))
 async def doğruluk_cesaretlik_komutu(client, message):
      komut = message.command[0][1:] # komutu alır (başındakı "/" işaretini atarak)
